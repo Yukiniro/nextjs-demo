@@ -7,10 +7,6 @@ export const getServerSideProps = async ({ res, req }) => {
     "Cache-Control",
     "public, s-maxage=20, stale-while-revalidate=59"
   );
-  req.setHeader(
-    "Cache-Control",
-    "public, s-maxage=20, stale-while-revalidate=59"
-  );
   console.log("getServerSideProps");
   return {
     props: {
@@ -30,7 +26,7 @@ export default function Home(props) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>About Page</h1>
-        <h2>{new Date(timeStamp).toISOString()}</h2>
+        <h2>{new Date(timeStamp).toString()}</h2>
       </main>
       <Footer />
     </div>

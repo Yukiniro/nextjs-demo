@@ -23,7 +23,7 @@ export default function Home(props) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>Home Page</h1>
-        <h2>{new Date(timeStamp).toISOString()}</h2>
+        <h2>{new Date(timeStamp).toString()}</h2>
       </main>
       <Footer />
     </div>
