@@ -1,14 +1,21 @@
 import Head from "next/head";
-import Footer from "../components/Footer";
-import styles from "../styles/Home.module.css";
+import Footer from "../../components/Footer";
+import styles from "./About.module.css";
 
-export const getStaticProps = async () => {
-  console.log("getStaticProps");
+export const getServerSideProps = async ({ res, req }) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=20, stale-while-revalidate=59"
+  );
+  req.setHeader(
+    "Cache-Control",
+    "public, s-maxage=20, stale-while-revalidate=59"
+  );
+  console.log("getServerSideProps");
   return {
     props: {
       timeStamp: Date.now(),
     },
-    revalidate: 10,
   };
 };
 
@@ -22,7 +29,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>Home Page</h1>
+        <h1 className={styles.title}>About Page</h1>
         <h2>{new Date(timeStamp).toISOString()}</h2>
       </main>
       <Footer />
