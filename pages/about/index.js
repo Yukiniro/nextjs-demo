@@ -2,7 +2,7 @@ import Head from "next/head";
 import Footer from "../../components/Footer";
 import styles from "./About.module.css";
 
-export const getServerSideProps = async ({ res, req }) => {
+export const getServerSideProps = async ({ res }) => {
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=20, stale-while-revalidate=59"
