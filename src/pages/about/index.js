@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Footer from "../../components/Footer";
+import Links from "../../components/Links";
 import styles from "./About.module.css";
 
 export const getServerSideProps = async ({ res }) => {
@@ -14,7 +15,7 @@ export const getServerSideProps = async ({ res }) => {
     },
   };
 };
-
+const links = [{ href: "/", title: "Home" }];
 export default function Home(props) {
   const { timeStamp } = props;
   return (
@@ -26,7 +27,8 @@ export default function Home(props) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>About Page</h1>
-        <h2>{new Date(timeStamp).toString()}</h2>
+        <h2>{new Date(timeStamp).toUTCString()}</h2>
+        <Links links={links} />
       </main>
       <Footer />
     </div>

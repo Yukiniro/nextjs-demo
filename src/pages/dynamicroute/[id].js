@@ -11,7 +11,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   console.log("dynamicrouter getStaticProps");
   await new Promise((resolve) => {
-    setTimeout(resolve, 5000);
+    setTimeout(resolve, 1000);
   });
   const { id } = context.params;
   const timeStamp = Date.now();
@@ -38,7 +38,7 @@ export default function DynamicRoute(props) {
     <div>
       <main className={styles.main}>
         <h1 className={styles.title}>Dynamic Page {id}</h1>
-        <h2>{new Date(timeStamp).toString()}</h2>
+        <h2>{new Date(timeStamp).toUTCString()}</h2>
       </main>
     </div>
   );

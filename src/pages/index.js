@@ -1,6 +1,8 @@
 import Head from "next/head";
+import Link from "next/link";
 import Footer from "../components/Footer";
-import styles from "../styles/Home.module.css";
+import Links from "../components/Links";
+import styles from "../../styles/Home.module.css";
 
 export const getStaticProps = async () => {
   console.log("getStaticProps");
@@ -11,6 +13,12 @@ export const getStaticProps = async () => {
     revalidate: 10,
   };
 };
+
+const links = [
+  { href: "/about", title: "About" },
+  { href: "/staticpage", title: "Staticpage" },
+  { href: "/dynamicroute/1", title: "Dynamicpage1" },
+];
 
 export default function Home(props) {
   const { timeStamp } = props;
@@ -23,7 +31,8 @@ export default function Home(props) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>Home Page</h1>
-        <h2>{new Date(timeStamp).toString()}</h2>
+        <h2>{new Date(timeStamp).toUTCString()}</h2>
+        <Links links={links} />
       </main>
       <Footer />
     </div>
