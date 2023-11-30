@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import Footer from "../components/Footer";
 import Links from "../components/Links";
 import styles from "../../styles/Home.module.css";
@@ -10,7 +9,7 @@ export const getStaticProps = async () => {
     props: {
       timeStamp: Date.now(),
     },
-    revalidate: 10,
+    revalidate: 60000,
   };
 };
 
